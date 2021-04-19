@@ -11,11 +11,14 @@ public class Employee_Wage_Computation {
 		int wage_Per_Hour = 20;
 		int hour_per_day =8;
 		int hour_half_day=4;
-		int working_Day =20;
+		int working_Day =0;
+		int working_Hour=0;
 		int wage ;
 	
 			
-			for (int i = 0; i < working_Day; i++) {
+			while(working_Day<=20 &&
+					working_Hour<=100){
+				
 				int attendance_Check = (int)(Math.random()*10)%3;
 				switch (attendance_Check)
 				{
@@ -23,6 +26,8 @@ public class Employee_Wage_Computation {
 				{
 					wage = wage_Per_Hour*hour_per_day;
 					employee_wage = employee_wage + wage;
+					working_Hour=working_Hour+8;
+					working_Day++;
 					break;
 				
 				}
@@ -30,6 +35,8 @@ public class Employee_Wage_Computation {
 				{
 					wage = wage_Per_Hour*hour_half_day;
 					employee_wage = employee_wage + wage;
+					working_Hour=working_Hour+4;
+					working_Day++;
 					
 					break;
 				}
@@ -38,6 +45,7 @@ public class Employee_Wage_Computation {
 					break;
 				}
 				}			
+			
 			}
 			System.out.println("Total wege of employee in the month is : "+employee_wage);
 			
