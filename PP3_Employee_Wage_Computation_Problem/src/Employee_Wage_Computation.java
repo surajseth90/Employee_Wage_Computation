@@ -11,31 +11,35 @@ public class Employee_Wage_Computation {
 		int wage_Per_Hour = 20;
 		int hour_per_day =8;
 		int hour_half_day=4;
+		int working_Day =20;
+		int wage ;
 	
-			int attendance_Check = (int)(Math.random()*10)%3;
 			
-			switch (attendance_Check)
-			{
-			case employee_Full_Time:
-			{
-				employee_wage = wage_Per_Hour*hour_per_day;
-				System.out.println("Employee is present and the wage of employee is : "+employee_wage);
-				break;
+			for (int i = 0; i < working_Day; i++) {
+				int attendance_Check = (int)(Math.random()*10)%3;
+				switch (attendance_Check)
+				{
+				case employee_Full_Time:
+				{
+					wage = wage_Per_Hour*hour_per_day;
+					employee_wage = employee_wage + wage;
+					break;
+				
+				}
+				case employee_Part_Time:
+				{
+					wage = wage_Per_Hour*hour_half_day;
+					employee_wage = employee_wage + wage;
+					
+					break;
+				}
+				default :
+				{
+					break;
+				}
+				}			
+			}
+			System.out.println("Total wege of employee in the month is : "+employee_wage);
 			
-			}
-			case employee_Part_Time:
-			{
-				employee_wage = wage_Per_Hour*hour_half_day;
-				System.out.println("Employee is present in half of the day"
-						+ " and the wage of employee is : "+employee_wage);
-				break;
-			}
-			default :
-			{
-				System.out.println("Employee is absent and the wage is : "+employee_wage);
-				break;
-			}
-			}
-		
 	}
 }
